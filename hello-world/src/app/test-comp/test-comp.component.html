@@ -1,0 +1,9 @@
+<h1>Hello World!</h1>
+<p>{{myNewNumber}}</p>
+<p>{{myTitle.title}}</p>
+<br>
+
+<p *ngIf="loginFlag">Welcom back!</p>
+<p *ngIf="!loginFlag">Please log in</p>
+
+<button (click)="callParentGreet()">Greet</button>

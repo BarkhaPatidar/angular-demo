@@ -1,0 +1,14 @@
+<p>first works!</p>
+<ul class="list-group">
+    <li (click)="onSelect(department)" [class.selected]="isSelected(department)" *ngFor="let department of departments">
+        <span>{{department.id}}</span> {{department.name}}
+    </li>
+</ul>
+<nav>
+    <ul>
+      <li><a routerLink="child-a" routerLinkActive="active">Child A</a></li>
+      <li><a routerLink="child-b" routerLinkActive="active">Child B</a></li>
+    </ul>
+</nav>
+  
+<router-outlet></router-outlet>
