@@ -1,0 +1,72 @@
+<span [class]="headClass">{{ title }} app is running!</span><br>
+<span [ngClass]="headClassToggle ? headClass : ''">{{ title }}</span><br>
+
+<span [class.heading-title]="headClassToggle" [style]="titleFont">{{ title }} app is running!</span>
+
+<div [style.font-size]="headClassToggle ? 'x-large' : 'smaller'">
+    This div is x-large or smaller.
+</div>
+
+<div [ngStyle]="currentStyles">
+    This div is initially italic, normal weight, and extra large (24px).
+</div>
+
+<p>Super power boost: {{2 | exponentialStrength: 10}}</p>
+<button (click)="greetStudent()">Greet Students</button>
+<button (click)="appreciateStudent()">Appreciate Students</button>
+<div>
+    <button (click) = "decrement()">Subtract</button>
+    <test-comp #child *ngIf="isVisible" (greetEvent)="greet($event)" [loggedIn]="userLoggedIn" [myNewNumber] = "counter" [myTitle] = "user"></test-comp>
+    <button (click) = "increment()">Add</button>
+    <a (click) = "updateValue()">Update</a>
+
+    <br>
+    <button (click) = "switchVisibility()">Show/Hide</button>
+</div>
+
+<div>
+    <input #nameRef type="text" [(ngModel)]="name">
+    <p>Welcome {{name}}</p>
+</div>
+
+<div>
+    <input type="text" [ngModel]="userName" (ngModelChange)="greetUser($event)">
+    <p>Welcome {{userName}}</p>
+</div>
+
+<div>
+    <input type="text" [(ngModel)]="customerName">
+    <p>Welcome {{customerName}}</p>
+</div>
+
+<!-- <div>
+    {{child.newName}}
+    <button (click)="child.greetBarkha()">Greet</button>
+</div> -->
+
+<app-svg></app-svg>
+
+<div *ngFor="let item of items">{{item}}</div>
+<br>
+<div *ngFor="let item of items; let i=index">{{i + 2}} - {{item}}</div>
+<br>
+
+<h1>My First Attribute Directive</h1>
+
+<h2>Pick a highlight color</h2>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+
+<p [appHighlight]="color">Highlight me!</p>
+<br>
+<p appHighlight [appHighlight]="'orange'">Highlighted in orange</p>
+<p appHighlight [appHighlight]="color">Highlighted with parent component's color</p>
+<p [appHighlight]>Highlight me!</p>
+
+<br><br>
+<p [appHighlight]="color" defaultColor="violet">
+    Highlight me too!
+</p>
